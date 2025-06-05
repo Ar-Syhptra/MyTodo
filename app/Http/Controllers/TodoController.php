@@ -10,10 +10,17 @@ class TodoController extends Controller
 {
     public function index(): View
     {
-        $todo = Todo::where('todo_check', false)->get();
-        $check = Todo::where('todo_check', true)->get();
+        $userId = auth()->id(); // ambil ID user yang login
 
-        return view('todo', ['title' => 'MyTodo', 'todo' => $todo, 'todoCheck' => $check]);
+        $todo = Todo::where('user_id', $userId)
+            ->where('todo_check', false)
+            ->get();
+
+        $todoCheck = Todo::where('user_id', $userId)
+            ->where('todo_check', true)
+            ->get();
+
+        return view('todo', ['title' => 'MyTodo', 'todo' => $todo, 'todoCheck' => $todoCheck]);
     }
 
     public function store(Request $request)
@@ -23,7 +30,8 @@ class TodoController extends Controller
         ]);
 
         Todo::create([
-            'name' => $data['name']
+            'name' => $data['name'],
+            'user_id' => auth()->user()->id
         ]);
 
         return redirect()->route('todo');

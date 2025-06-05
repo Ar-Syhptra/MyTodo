@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('todo_check')->default(false);
+            $table->foreignId('user_id')->constrained(
+                table: 'users',
+                indexName: 'todos_users_id'
+            );
             $table->timestamps();
         });
     }

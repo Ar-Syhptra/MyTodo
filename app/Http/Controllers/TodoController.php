@@ -10,7 +10,7 @@ class TodoController extends Controller
 {
     public function index(): View
     {
-        $userId = auth()->id(); // ambil ID user yang login
+        $userId = auth()->id();
 
         $todo = Todo::where('user_id', $userId)
             ->where('todo_check', false)
@@ -31,7 +31,7 @@ class TodoController extends Controller
 
         Todo::create([
             'name' => $data['name'],
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->user()->id,
         ]);
 
         return redirect()->route('todo');

@@ -68,7 +68,7 @@ php artisan serve
 ### 📋 Halaman Utama
 
 - **Home Page**  
-  ![Home Page](public/screenshots/Home-page.png)
+  ![Home Page](public/screenshots/home-page.png)
 
 - **Todo Page**  
   ![Todo Page](public/screenshots/todo-page.png)

@@ -1,10 +1,11 @@
 # 📝 MyTodo - To-Do List App
 
-MyTodo adalah aplikasi to-do list yang berfungsi untuk membantu pengguna mencatat, mengatur, dan menyelesaikan tugas harian dengan mudah. Dengan tampilan yang clean dan fitur intuitif seperti tambah, hapus, dan tandai tugas selesai, aplikasi ini cocok untuk siapa pun yang ingin meningkatkan produktivitas hariannya.
+MyTodo adalah aplikasi to-do list yang berfungsi untuk membantu pengguna mencatat, mengatur, dan menyelesaikan tugas harian dengan mudah. Dengan tampilan yang clean dan fitur intuitif seperti tambah, Edit, hapus, dan tandai tugas selesai, aplikasi ini cocok untuk siapa pun yang ingin meningkatkan produktivitas hariannya.
 
 ## 🚀 Fitur Utama
 
-- ✅ Tambah tugas baru
+- ✅ Tambah tugas
+- ✏️ Edit tugas
 - ❌ Hapus tugas
 - 🟢 Tandai tugas sebagai selesai
 - 🔐 Autentikasi pengguna (Login & Register)
@@ -13,8 +14,9 @@ MyTodo adalah aplikasi to-do list yang berfungsi untuk membantu pengguna mencata
 ## 🛠️ Teknologi yang Digunakan
 
 - [Laravel](https://laravel.com/) 12
-- Blade Template Engine
+- Livewire 3
 - Tailwind CSS
+- Flowbite
 - MySQL
 
 ## 📦 Instalasi & Setup
@@ -31,7 +33,7 @@ cd mytodo
 
 ```bash
 composer install
-npm install && npm run dev
+npm install
 ```
 
 3. Buat database dan konfigurasi .env:
@@ -41,6 +43,11 @@ DB_DATABASE=mytodo
 DB_USERNAME=root
 DB_PASSWORD=your_password
 ```
+4. Generate key:
+
+```bash
+php artisan:key generate
+```
 
 5. Jalankan migrasi:
 
@@ -48,25 +55,13 @@ DB_PASSWORD=your_password
 php artisan migrate
 ```
 
-6. Jalankan server lokal:
+6. Jalankan project:
 
 ```bash
-php artisan serve
+composer run dev
 ```
 
 ## 📸 Screenshot
-
-### 🔐 Halaman Autentikasi
-- **Register Page**  
-  ![Register Page](public/screenshots/register-page.png)
-
-- **Login Page**  
-  ![Login Page](public/screenshots/login-page.png)
-
----
-
-### 📋 Halaman Utama
-
 - **Home Page**  
   ![Home Page](public/screenshots/home-page.png)
 

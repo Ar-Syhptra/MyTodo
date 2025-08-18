@@ -93,7 +93,7 @@ class Todo extends Component
     public function clear()
     {
         TodoModel::where('user_id', Auth::id())
-            ->where('todo_check', false)
+            ->where('todo_check', true)
             ->delete();
 
         $this->resetPage('todoPage');

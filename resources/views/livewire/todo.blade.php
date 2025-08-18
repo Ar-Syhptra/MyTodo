@@ -84,16 +84,6 @@
                     {{ $todo->links() }}
                 </div>
 
-                <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-1"
-                    aria-label="Table navigation">
-                    <button wire:click="clear" type="button" wire:confirm="Apakah anda yakin untuk menghapus?"
-                        class="m-2 focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-5 h-5 inline">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                        Hapus semua tugas</button>
-                </nav>
             </div>
         </div>
 
@@ -192,6 +182,17 @@
                 <div class="px-4 py-3 bg-gray-50 dark:bg-gray-700">
                     {{ $todoCheck->links() }}
                 </div>
+                <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-1"
+                    aria-label="Table navigation">
+                    <button wire:click="clear" type="button" wire:confirm="Apakah anda yakin untuk menghapus?"
+                        class="m-2 focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-5 h-5 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                        Hapus semua tugas</button>
+                </nav>
+
             </div>
         </div>
 </div>

@@ -4,13 +4,14 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
 use Livewire\Attributes\Layout;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Todo as TodoModel;
 
 class Todo extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
     #[Layout('components.layouts.app-todo')]
     public $name;

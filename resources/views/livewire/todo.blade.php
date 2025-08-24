@@ -6,11 +6,11 @@
                     Tambah </label>
                 <div class="relative w-full">
                     <input type="text" id="add" wire:model.debounce.300ms="name"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="border text-sm rounded-lg block w-full ps-10 p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Tambah Tugas" required name="name" autocomplete="off" />
                 </div>
                 <button type="submit"
-                    class="inline-flex items-cente py-2.5 px-3 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    class="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-medium text-white rounded-lg border border-blue-700 focus:ring-4 focus:outline-none bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -20,10 +20,10 @@
         </div>
 
         <div class="container flex justify-center mx-auto px-4 lg:px-8 my-2">
-            <div class="bg-white dark:bg-gray-800 shadow-md sm:rounded-lg overflow-hidden w-full">
+            <div class="bg-gray-800 shadow-md sm:rounded-lg overflow-hidden w-full">
                 <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <table class="w-full text-sm text-left text-gray-400">
+                        <thead class="text-xs uppercase bg-gray-700 text-gray-400">
                             <tr>
                                 <th scope="col" class="px-4 py-3">Tugas</th>
                                 <th scope="col" class="px-4 py-3 text-right">Aksi</th>
@@ -31,16 +31,15 @@
                         </thead>
                         <tbody>
                             @forelse ($todo as $task)
-                            <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <th scope="row"
-                                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <tr class="border-b border-gray-700">
+                                <th scope="row" class="px-4 py-3 font-medium whitespace-nowrap text-white">
                                     <span>{{ $task->created_at->translatedFormat('d F Y') }}</span>
                                     <p class="text-gray-300">{{ $task->name }}</p>
                                 </th>
                                 <td class="px-3 py-4">
                                     <div class="flex justify-end">
                                         <button wire:click="delete({{ $task->id }})" type="button"
-                                            class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                            class="text-white focus:ring-4 font-medium rounded-lg text-sm px-3 py-2.5 bg-red-600 hover:bg-red-700 focus:ring-red-800">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="size-5">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -50,7 +49,7 @@
 
                                         <button wire:click="edit({{ $task->id }})" data-modal-target="crud-modal"
                                             data-modal-toggle="crud-modal" type="button"
-                                            class="inline ml-2 text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-3 py-2.5 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
+                                            class="inline ml-2 text-white bg-yellow-600 hover:bg-yellow-700 focus:ring-4 focus:ring-yellow-800 font-medium rounded-lg text-sm px-3 py-2.5">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="size-5">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -59,7 +58,7 @@
                                         </button>
 
                                         <button wire:click="check({{ $task->id }})" type="button"
-                                            class="inline ml-2 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                            class="inline ml-2 text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-800 font-medium rounded-lg text-sm px-3 py-2.5">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="size-5">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -71,7 +70,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="2" class="px-4 py-3 text-center text-gray-500 dark:text-gray-400">
+                                <td colspan="2" class="px-4 py-3 text-center text-gray-400">
                                     Data tugas tidak ditemukan.
                                 </td>
                             </tr>
@@ -80,7 +79,7 @@
                     </table>
                 </div>
 
-                <div class="px-4 py-3 bg-gray-50 dark:bg-gray-700">
+                <div class="px-4 py-3 bg-gray-700">
                     {{ $todo->links() }}
                 </div>
 
@@ -91,33 +90,28 @@
         <div id="crud-modal" tabindex="-1" aria-hidden="true"
             class="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-md max-h-full">
-                <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
-                    <!-- Modal header -->
-                    <div
-                        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                <div class="relative bg-gray-700 rounded-lg shadow-sm">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600">
+                        <h3 class="text-lg font-semibold text-white">
                             Edit tugas
                         </h3>
                     </div>
-                    <!-- Modal body -->
                     <form class="p-4 md:p-5" wire:submit="update">
                         <div class="grid gap-4 mb-4 grid-cols-2">
                             <div class="col-span-2">
-                                <label for="nameEdit"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tugas</label>
+                                <label for="nameEdit" class="block mb-2 text-sm font-medium text-white">Tugas</label>
                                 <input type="text" name="nameEdit" id="nameEdit" wire:model="nameEdit"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    class="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder-gray-400"
                                     placeholder="Ketik nama tugas" required autocomplete="off">
                             </div>
                         </div>
                         <div class="flex justify-end space-x-2">
                             <button type="button" wire:click="cancelEdit"
-                                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+                                class="text-gray-300 bg-gray-700 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-600 rounded-lg border border-gray-500 text-sm font-medium px-5 py-2.5 hover:text-white focus:z-10">
                                 Batal
                             </button>
                             <button type="submit"
-                                class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                class="text-white inline-flex items-center bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                                 Simpan Perubahan
                             </button>
                         </div>
@@ -128,10 +122,10 @@
         @endif
 
         <div class="container flex justify-center mx-auto px-4 lg:px-8 my-2">
-            <div class="bg-white dark:bg-gray-800 shadow-md sm:rounded-lg overflow-hidden w-full">
+            <div class="bg-gray-800 shadow-md sm:rounded-lg overflow-hidden w-full">
                 <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <table class="w-full text-sm text-left text-gray-400">
+                        <thead class="text-xs uppercase bg-gray-700 text-gray-400">
                             <tr>
                                 <th scope="col" class="px-4 py-3">Tugas Selesai</th>
                                 <th scope="col" class="px-4 py-3 text-right">Aksi</th>
@@ -139,9 +133,8 @@
                         </thead>
                         <tbody>
                             @forelse ($todoCheck as $task)
-                            <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <th scope="row"
-                                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <tr class="border-b border-gray-700">
+                                <th scope="row" class="px-4 py-3 font-medium text-white whitespace-nowrap">
                                     <span>{{ $task->created_at->translatedFormat('d F Y') }}</span>
                                     <p class="text-gray-300">{{ $task->name }}</p>
 
@@ -149,7 +142,7 @@
                                 <td class="px-3 py-4">
                                     <div class="flex justify-end">
                                         <button wire:click="delete({{ $task->id }})" type="button"
-                                            class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                            class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-800 font-medium rounded-lg text-sm px-3 py-2.5">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="size-5">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -158,7 +151,7 @@
                                         </button>
 
                                         <button wire:click="uncheck({{ $task->id }})" type="button"
-                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-2">
+                                            class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-800 font-medium rounded-lg text-sm px-3 py-2.5 ml-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="size-5">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -170,7 +163,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="2" class="px-4 py-3 text-center text-gray-500 dark:text-gray-400">
+                                <td colspan="2" class="px-4 py-3 text-center text-gray-400">
                                     Data tugas tidak ditemukan.
                                 </td>
                             </tr>
@@ -179,13 +172,13 @@
                     </table>
                 </div>
 
-                <div class="px-4 py-3 bg-gray-50 dark:bg-gray-700">
+                <div class="px-4 py-3 bg-gray-700">
                     {{ $todoCheck->links() }}
                 </div>
                 <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-1"
                     aria-label="Table navigation">
                     <button wire:click="clear" type="button" wire:confirm="Apakah anda yakin untuk menghapus?"
-                        class="m-2 focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900">
+                        class="m-2 focus:outline-none text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-900 font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-5 h-5 inline">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
